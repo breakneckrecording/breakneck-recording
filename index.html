@@ -12,7 +12,7 @@
       --accent-purple: #a882ff;
       --accent-blue: #5adfff;
     }
-        input, textarea {
+    input, textarea {
       background: transparent;
       border: 1px solid #444;
     }
@@ -23,7 +23,7 @@
     .scroll-arrow {
       position: absolute;
       bottom: 150px;
-      left: 50%;
+      left: 48.5%;
       transform: translateX(-50%);
       animation: bounce 1.5s infinite;
     }
@@ -32,23 +32,26 @@
       50% { transform: translateY(10px); }
     }
     .logo {
-      max-width: 100%; /* Increased logo size */
-      margin-top: -400px; /* Move logo up */
+      max-width: 100%;
+      margin-top: -400px;
     }
     .heading-text {
       position: absolute;
-      top: 65%; /* Adjust position above logo */
+      top: 65%;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 10; /* Ensure the heading is above the logo */
+      z-index: 10;
     }
     .booking-section {
-          position: absolute;
-      max-width: 200px; /* Increased logo size */
-      top: 62%; /* Adjust position above logo */
+      position: absolute;
+      max-width: 200px;
+      top: 62%;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 10; /* Ensure the heading is above the logo */
+      z-index: 10;
+      text-align: center;
+      margin: 40px 0;
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -61,7 +64,6 @@
       <a href="contact.html" class="hover:text-[var(--accent-pink)]">Contact</a>
     </nav>
   </header>
-  
 
   <section class="h-screen flex flex-col items-center justify-center text-center px-4 relative" data-aos="fade-up">
     <!-- Heading / Middle Text -->
@@ -79,28 +81,27 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
       </svg>
     </div>
-    
-    <!-- Book Now Button -->
-    <div class="booking-section" style="text-align: center; margin: 40px 0;">
-  <script
-    id="setmore_script"
-    type="text/javascript"
-    src="https://assets.setmore.com/integration/static/setmoreIframeLive.js">
-  </script>
 
-  <a
-    id="Setmore_button_iframe"
-    href="https://breakneckrecording.setmore.com"
-    style="display: inline-block;">
-    <img
-      src="https://i.imgur.com/Jv6MCR9.png"
-      alt="Book an appointment with Breakneck Recording Studio using Setmore"
-      style="border: none;" />
-  </a>
-</div>
+    <!-- Book Now Button -->
+    <div class="booking-section">
+      <script
+        id="setmore_script"
+        type="text/javascript"
+        src="https://assets.setmore.com/integration/static/setmoreIframeLive.js">
+      </script>
+      <a
+        id="Setmore_button_iframe"
+        href="https://breakneckrecording.setmore.com"
+        style="display: inline-block;">
+        <img
+          src="https://i.imgur.com/Jv6MCR9.png"
+          alt="Book an appointment with Breakneck Recording Studio using Setmore"
+          style="border: none;" />
+      </a>
+    </div>
   </section>
-  
-    <section class="p-10 max-w-3xl mx-auto" data-aos="fade-up">
+
+  <section class="p-10 max-w-3xl mx-auto" data-aos="fade-up">
     <h2 class="text-4xl font-bold mb-6 text-[var(--accent-pink)]">Contact Us</h2>
     <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST" class="space-y-4">
       <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded" required />
@@ -116,4 +117,5 @@
   <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 </html>
+
 
