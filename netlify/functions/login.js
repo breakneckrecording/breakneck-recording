@@ -3,8 +3,8 @@ exports.handler = async function(event, context) {
   const { username, password } = JSON.parse(event.body);
 
   // Simple hardcoded credentials for illustration (never use hardcoded passwords in production)
-  const validUsername = 'admin';
-  const validPassword = 'password123';
+  const validUsername = 'byndhuman';
+  const validPassword = 'Banana01';
 
   if (username === validUsername && password === validPassword) {
     return {
