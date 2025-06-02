@@ -78,6 +78,34 @@
         margin-top: -300px; /* Adjust position for larger logo */
       }
     }
+    
+    /* Booking Section for Small Screens (Mobile) */
+@media (max-width: 768px) {
+  .booking-section {
+    position: absolute;
+    max-width: 200px;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    text-align: center;
+    margin: 40px 0;
+  }
+}
+
+/* Booking Section for Large Screens (Desktop) */
+@media (min-width: 768px) {
+  .booking-section {
+    position: absolute;
+    max-width: 200px; /* Larger width for larger screens */
+    top: 65%; /* Adjust the vertical positioning */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    text-align: center;
+    margin: 60px 0; /* Adjust margin for larger screens */
+  }
+}
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -136,6 +164,7 @@
   </script>
 </body>
 </html>
+
 
 
 
