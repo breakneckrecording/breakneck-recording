@@ -14,7 +14,7 @@
     }
     .scroll-arrow {
       position: absolute;
-      bottom: 150px; /* Move it up further */
+      bottom: 150px;
       left: 50%;
       transform: translateX(-50%);
       animation: bounce 1.5s infinite;
@@ -22,6 +22,17 @@
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(10px); }
+    }
+    .logo {
+      max-width: 800px; /* Increased logo size */
+      margin-top: -400px; /* Move logo up */
+    }
+    .heading-text {
+      position: absolute;
+      top: 65%; /* Adjust position above logo */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10; /* Ensure the heading is above the logo */
     }
   </style>
 </head>
@@ -36,11 +47,15 @@
     </nav>
   </header>
 
-  <section class="h-screen flex items-center justify-center text-center px-4 relative" data-aos="fade-up">
-    <div>
+  <section class="h-screen flex flex-col items-center justify-center text-center px-4 relative" data-aos="fade-up">
+    <!-- Heading / Middle Text -->
+    <div class="heading-text">
       <h2 class="text-5xl font-extrabold mb-4">Precision Sound. High Speed.</h2>
       <p class="text-lg text-gray-300">Welcome to Breakneck Recording — Where creativity moves fast and sounds elite.</p>
     </div>
+
+    <!-- Logo -->
+    <img src="https://i.imgur.com/IqLwRK5.png" alt="Breakneck Recording Logo" class="logo">
 
     <!-- Scroll Down Arrow -->
     <div class="scroll-arrow">
@@ -54,3 +69,4 @@
   <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 </html>
+
