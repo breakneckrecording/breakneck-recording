@@ -12,6 +12,14 @@
       --accent-purple: #a882ff;
       --accent-blue: #5adfff;
     }
+        input, textarea {
+      background: transparent;
+      border: 1px solid #444;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--accent-pink);
+      outline: none;
+    }
     .scroll-arrow {
       position: absolute;
       bottom: 150px;
@@ -63,6 +71,18 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
       </svg>
     </div>
+  </section>
+  
+    <section class="p-10 max-w-3xl mx-auto" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-6 text-[var(--accent-pink)]">Contact Us</h2>
+    <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST" class="space-y-4">
+      <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded" required />
+      <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded" required />
+      <textarea name="message" rows="5" placeholder="Your Message" class="w-full p-3 rounded" required></textarea>
+      <button type="submit" class="bg-white text-black px-6 py-2 rounded hover:bg-[var(--accent-pink)] hover:text-white transition">
+        Send Message
+      </button>
+    </form>
   </section>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
