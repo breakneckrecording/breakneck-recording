@@ -12,29 +12,42 @@
       --accent-purple: #a882ff;
       --accent-blue: #5adfff;
     }
-    input, textarea {
+
+    input,
+    textarea {
       background: transparent;
       border: 1px solid #444;
     }
-    input:focus, textarea:focus {
+
+    input:focus,
+    textarea:focus {
       border-color: var(--accent-pink);
       outline: none;
     }
+
     .scroll-arrow {
       position: absolute;
       bottom: 150px;
-      left: 49.6%;
+      left: 50%;
       transform: translateX(-50%);
       animation: bounce 1.5s infinite;
+      z-index: 10;
     }
+
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(10px);
+      }
     }
+
     .logo {
       max-width: 100%;
       margin-top: -400px;
     }
+
     .heading-text {
       position: absolute;
       top: 65%;
@@ -42,6 +55,7 @@
       transform: translateX(-50%);
       z-index: 10;
     }
+
     .booking-section {
       position: absolute;
       max-width: 200px;
@@ -55,6 +69,7 @@
   </style>
 </head>
 <body class="bg-black text-white font-sans">
+  <!-- Header -->
   <header class="p-6 flex justify-between items-center sticky top-0 bg-black z-50">
     <h1 class="text-2xl font-bold">Breakneck Recording</h1>
     <nav class="space-x-6 text-sm uppercase font-medium">
@@ -65,42 +80,37 @@
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section class="h-screen flex flex-col items-center justify-center text-center px-4 relative" data-aos="fade-up">
     <!-- Heading / Middle Text -->
     <div class="heading-text">
-      <h2 class="text-5xl font-extrabold mb-4"> </h2>
-      <p class="text-lg text-gray-300"> </p>
+      <h2 class="text-5xl font-extrabold mb-4"></h2>
+      <p class="text-lg text-gray-300"></p>
     </div>
 
     <!-- Logo -->
-    <img src="https://i.imgur.com/IqLwRK5.png" alt="Breakneck Recording Logo" class="logo">
+    <img src="https://i.imgur.com/IqLwRK5.png" alt="Breakneck Recording Logo" class="logo" />
 
     <!-- Scroll Down Arrow -->
     <div class="scroll-arrow">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
       </svg>
     </div>
 
     <!-- Book Now Button -->
     <div class="booking-section">
-      <script
-        id="setmore_script"
-        type="text/javascript"
-        src="https://assets.setmore.com/integration/static/setmoreIframeLive.js">
-      </script>
-      <a
-        id="Setmore_button_iframe"
-        href="https://breakneckrecording.setmore.com"
-        style="display: inline-block;">
+      <script id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js"></script>
+      <a id="Setmore_button_iframe" href="https://breakneckrecording.setmore.com" style="display: inline-block;">
         <img
           src="https://i.imgur.com/Jv6MCR9.png"
           alt="Book an appointment with Breakneck Recording Studio using Setmore"
-          style="border: none;" />
+          style="border: none; max-width: 100%;" />
       </a>
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section class="p-10 max-w-3xl mx-auto" data-aos="fade-up">
     <h2 class="text-4xl font-bold mb-6 text-[var(--accent-pink)]">Contact Us</h2>
     <form action="https://formspree.io/f/myzjyzpl" method="POST" class="space-y-4">
@@ -113,9 +123,13 @@
     </form>
   </section>
 
+  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ duration: 1000, once: true });</script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
 </body>
 </html>
+
 
 
