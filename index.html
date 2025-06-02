@@ -170,6 +170,129 @@
     </div>
   </section>
 
+  <!-- Beats Section -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Playlist Carousel</title>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #fff;
+      padding: 20px;
+      margin: 0; /* Remove default margin */
+      line-height: 1.6; /* Improve readability by spacing out lines */
+      font-weight: bold; /* Make the font bold */
+    }
+
+	h2 {
+ 	  text-align: center;
+ 	  color: #fff;
+ 	  position: relative;
+ 	  top: -30px; /* Move the text up */
+  	  font-size: 2.3rem;
+  	  text-transform: uppercase;
+	}
+    .swiper {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 10px;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Customize navigation buttons */
+    .swiper-button-next, .swiper-button-prev {
+      color: #fff;
+    }
+
+    /* Style the pagination */
+    .swiper-pagination-bullet {
+      background: #fff;
+    }
+    .swiper-pagination-bullet-active {
+      background: #00bcd4;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Beats for Sale</h2>
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Replace these VIDEO_IDs with yours -->
+      <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/uNuBZEDnV9E?si=I2vVxvvqmTwY8AjW" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/QvaA2sWwqgc?si=3BBYgYflJoDR23wq" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/Xr2u9hJuLE8?si=i2WzZnnhkYruczqB" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/nuQTGGax-_Y?si=uSHVFW8B20OX5NY7" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <!-- Add more slides as needed -->
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Initialization -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+  </script>
+
+<div style="height: 150px;"></div>
+
   <!-- Contact Section -->
   <section class="p-10 max-w-3xl mx-auto" data-aos="fade-up">
     <h2 class="text-4xl font-bold mb-6 text-[var(--accent-pink)]">Contact Us</h2>
@@ -183,12 +306,14 @@
     </form>
   </section>
 
+<div style="height: 150px;"></div>
+
   <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
   </script>
+  
+  
 </body>
 </html>
-
-
