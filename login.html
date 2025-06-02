@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 30px;
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
+
+        input {
+            background-color: black;
+            color: white;
+            border: none;
+            border-bottom: 1px solid white;
+            margin: 10px 0;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c39bd3;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>LOG IN</h1>
+        <form id="login-form">
+            <div>
+                <label for="username">Username</label><br>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <input type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('/.netlify/functions/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert(result.message); // Login successful
+                window.location.href = 'portfolio.html'; // Redirect to the portfolio page
+            } else {
+                alert(result.message); // Show error message
+            }
+        });
+    </script>
+
+</body>
+</html>
