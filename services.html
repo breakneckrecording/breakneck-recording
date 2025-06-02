@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Breakneck Recording</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root {
+      --accent-pink: #ff4ecb;
+      --accent-purple: #a882ff;
+      --accent-blue: #5adfff;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+  <header class="p-6 flex justify-between items-center sticky top-0 bg-black z-50">
+    <h1 class="text-2xl font-bold">Breakneck Recording</h1>
+    <nav class="space-x-6 text-sm uppercase font-medium">
+      <a href="index.html" class="hover:text-[var(--accent-pink)]">Home</a>
+      <a href="services.html" class="hover:text-[var(--accent-purple)]">Services</a>
+      <a href="book.html" class="hover:text-[var(--accent-blue)]">Book Now</a>
+      <a href="contact.html" class="hover:text-[var(--accent-pink)]">Contact</a>
+    </nav>
+  </header>
+
+  <section class="p-10 max-w-3xl mx-auto" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-6 text-[var(--accent-purple)]">Our Services</h2>
+    <ul class="space-y-6 text-gray-300">
+      <li>
+        <h3 class="text-xl font-semibold text-white">🎚 Recording Sessions</h3>
+        <p>Professional studio-grade vocal and instrumental recording.</p>
+      </li>
+      <li>
+        <h3 class="text-xl font-semibold text-white">🎛 Mixing & Mastering</h3>
+        <p>Industry-standard polish for your tracks using high-end plugins and gear.</p>
+      </li>
+      <li>
+        <h3 class="text-xl font-semibold text-white">🧠 Creative Consulting</h3>
+        <p>Need guidance on production, song structure, or vibe? We got you.</p>
+      </li>
+    </ul>
+  </section>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+</body>
+</html>
