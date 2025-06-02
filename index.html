@@ -44,12 +44,22 @@
     }
 
     .logo {
-      max-width: 80%;  /* Increased the size of the logo */
-      max-height: 500px; /* Increased the max height */
+      max-width: 80%;  /* Larger logo by default */
+      max-height: 500px; /* Larger height by default */
       width: auto;
-      margin-top: -100px; /* Adjusted for better positioning */
+      margin-top: -200px;
+      transition: transform 0.3s ease-in-out;  /* Smooth transition for scaling */
     }
 
+    /* Scale up logo for smaller screens */
+    @media (max-width: 768px) {
+      .logo {
+        transform: scale(1.2); /* Scale up for mobile */
+        margin-top: -80px; /* Adjust positioning on mobile */
+      }
+    }
+
+    /* Adjust the size of the booking section on smaller screens */
     .booking-section {
       position: absolute;
       max-width: 200px;
@@ -61,11 +71,11 @@
       margin: 40px 0;
     }
 
-    /* Add responsive design */
+    /* Add responsive design for larger screens */
     @media (min-width: 768px) {
       .logo {
         max-height: 1000px; /* Larger logo on desktop */
-        margin-top: -200px; /* Adjusted position for larger logo */
+        margin-top: -300px; /* Adjust position for larger logo */
       }
     }
   </style>
@@ -126,6 +136,7 @@
   </script>
 </body>
 </html>
+
 
 
 
