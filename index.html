@@ -12,6 +12,17 @@
       --accent-purple: #a882ff;
       --accent-blue: #5adfff;
     }
+    .scroll-arrow {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -25,10 +36,17 @@
     </nav>
   </header>
 
-  <section class="h-screen flex items-center justify-center text-center px-4" data-aos="fade-up">
+  <section class="h-screen flex items-center justify-center text-center px-4 relative" data-aos="fade-up">
     <div>
       <h2 class="text-5xl font-extrabold mb-4">Precision Sound. High Speed.</h2>
       <p class="text-lg text-gray-300">Welcome to Breakneck Recording — Where creativity moves fast and sounds elite.</p>
+    </div>
+
+    <!-- Scroll Down Arrow -->
+    <div class="scroll-arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
     </div>
   </section>
 
