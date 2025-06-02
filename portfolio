@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #121212; /* Dark background */
+            font-family: 'Arial', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            max-width: 1200px;
+            margin-top: 1000px;
+        }
+
+        .section {
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            margin: 20px 0;
+            padding: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(1);
+            transition: transform 0.3s ease, opacity 0.6s ease-in-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+        }
+
+        .section:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        /* Styling for responsive layout */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="section">
+            <h2>About Me</h2>
+            <p>This is a brief description about me, my skills, and my journey.</p>
+        </div>
+        <div class="section">
+            <h2>My Work</h2>
+            <p>Here are some of the projects I have worked on. Check out my portfolio.</p>
+        </div>
+        <div class="section">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me for collaborations or opportunities.</p>
+        </div>
+        <div style="height: 200px;"></div>
+    </div>
+
+    <script>
+        // Add fade-in effect to sections
+        window.addEventListener("scroll", () => {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section) => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight - 100) {
+                    section.classList.add('visible');
+                } else {
+                    section.classList.remove('visible');
+                }
+            });
+        });
+
+        // Trigger initial check for visibility
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+
+</body>
+</html>
