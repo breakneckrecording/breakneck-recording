@@ -309,7 +309,13 @@
     </form>
   </section>
   
-<audio src="assets/audio/offbeat.mp3" autoplay loop></audio>
+<!-- Hidden looping audio with reduced volume -->
+<audio id="myAudio" src="assets/audio/offbeat.mp3" autoplay loop></audio>
+
+<script>
+  const audio = document.getElementById("myAudio");
+  audio.volume = 0.2; // Adjust volume between 0.0 (mute) and 1.0 (full volume)
+</script>
 
 <div style="height: 150px;"></div>
 
@@ -322,3 +328,4 @@
   
 </body>
 </html>
+
