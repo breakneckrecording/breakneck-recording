@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Breakneck Recording</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="icon" href="assets/images/bnstudiofav.png" type="image/png">
+  <style>
+    :root {
+      --accent-pink: #ff4ecb;
+      --accent-purple: #a882ff;
+      --accent-blue: #5adfff;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+  <!-- Header -->
+  <header class="p-6 flex justify-between items-center sticky top-0 bg-black z-50">
+    <h1 class="text-2xl font-bold">Breakneck Recording</h1>
+    <nav class="space-x-6 text-sm uppercase font-medium">
+      <a href="index.html" class="hover:text-[var(--accent-pink)]">Home</a>
+      <a href="services.html" class="hover:text-[var(--accent-purple)]">Services</a>
+      <a href="book.html" class="hover:text-[var(--accent-blue)]">Book Now</a>
+      <a href="info.html" class="hover:text-[var(--accent-pink)]">Info</a>
+    </nav>
+  </header>
+
+  <!-- File Viewer Section -->
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">📁 My Files</h2>
+    <div id="file-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" data-aos="fade-up"></div>
+  </main>
+
+  <!-- Modal -->
+  <div id="file-modal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
+    <div class="bg-white text-black p-6 rounded-lg max-w-xl max-h-[90vh] overflow-auto relative">
+      <button onclick="closeModal()" class="absolute top-2 right-2 bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Close</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+
+  <script>
+const GITHUB_USER = 'breakneckrecording';
+const GITHUB_REPO = 'breakneck-recording';
+const FOLDER_PATH = 'beats';
+const API_URL = `https://api.github.com/repos/breakneckrecording/breakneck-recording/contents/beats`;
+
+
+    function getIcon(file) {
+      const ext = file.name.split('.').pop().toLowerCase();
+      if (file.type === 'dir') return '📂';
+      if (['png', 'jpg', 'jpeg', 'gif', 'webp'].includes(ext)) return '🖼️';
+      if (['mp3', 'wav', 'ogg'].includes(ext)) return '🎵';
+      if (['mp4', 'mov', 'webm'].includes(ext)) return '🎞️';
+      if (['pdf'].includes(ext)) return '📄';
+      if (['txt', 'md', 'json', 'js', 'html', 'css'].includes(ext)) return '📜';
+      return '📁';
+    }
+
+    async function loadFiles() {
+      const container = document.getElementById('file-list');
+      container.innerHTML = '<p class="text-white">Loading files...</p>';
+      try {
+        const res = await fetch(API_URL);
+        if (!res.ok) throw new Error('Error fetching files');
+        const files = await res.json();
+        container.innerHTML = '';
+        files.forEach(file => {
+          const item = document.createElement('div');
+          item.className = 'relative bg-black p-4 rounded-lg text-center hover:bg-purple-400 transition';
+          item.innerHTML = `
+            <div class="text-3xl cursor-pointer" onclick="showFile('${file.download_url}', '${file.name}')">${getIcon(file)}</div>
+            <div class="mt-2 break-words text-sm">${file.name}</div>
+            <a href="${file.download_url}" download class="absolute top-2 right-2">
+              <img src="https://breakneckrecording.com/assets/images/downloadbutton.png" alt="Download" class="w-6 h-6 hover:opacity-80">
+            </a>
+          `;
+          container.appendChild(item);
+        });
+      } catch (e) {
+        container.innerHTML = `<p class="text-red-500">Error loading files: ${e.message}</p>`;
+      }
+    }
+
+    function showFile(url, name) {
+      const ext = name.split('.').pop().toLowerCase();
+      const modal = document.getElementById('file-modal');
+      const content = document.getElementById('modal-content');
+      content.innerHTML = '<p>Loading preview...</p>';
+
+      if (['png', 'jpg', 'jpeg', 'gif', 'webp'].includes(ext)) {
+        content.innerHTML = `<img src="${url}" alt="${name}" class="max-w-full rounded">`;
+      } else if (['txt', 'md', 'json', 'js', 'html', 'css'].includes(ext)) {
+        fetch(url)
+          .then(res => res.text())
+          .then(text => {
+            content.innerHTML = `
+              <h3 class="font-bold mb-2">${name}</h3>
+              <pre class="bg-gray-100 text-sm p-4 rounded overflow-auto whitespace-pre-wrap max-h-[60vh]">${text.replace(/</g, '&lt;')}</pre>
+            `;
+          })
+          .catch(() => {
+            content.innerHTML = `<p>Failed to load text content.</p>`;
+          });
+      } else {
+        content.innerHTML = `
+          <h3 class="font-bold mb-4">${name}</h3>
+          <p class="mb-4">No preview available.</p>
+          <a href="${url}" download class="inline-block bg-purple-400 text-white px-4 py-2 rounded hover:bg-black">Download File</a>
+        `;
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      document.getElementById('file-modal').classList.add('hidden');
+    }
+
+    loadFiles();
+  </script>
+</body>
+</html>
