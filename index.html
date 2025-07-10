@@ -1,4 +1,50 @@
 <!DOCTYPE html>
+
+<div class="announcement-banner">
+  <div class="announcement-track">
+    <div class="announcement-text">
+      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE!   &nbsp;&nbsp;&nbsp;
+      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE!  &nbsp;&nbsp;&nbsp;
+      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE! 
+    </div>
+  </div>
+</div>
+
+<style>
+.announcement-banner {
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  padding: 10px 0;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  border-bottom: 2px solid #af78bd;
+  position: relative;
+  z-index: 1000;
+}
+
+.announcement-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll-left 20s linear infinite;
+}
+
+.announcement-text {
+  display: inline-block;
+  padding-right: 100px; /* spacing between loops */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+</style>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
