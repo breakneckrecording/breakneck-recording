@@ -35,7 +35,7 @@
 
   <!-- Modal -->
   <div id="file-modal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
-    <div class="bg-white text-black p-6 rounded-lg max-w-xl max-h-[90vh] overflow-auto relative">
+    <div class="bg-white text-black p-8 pt-12 rounded-lg max-w-2xl max-h-[95vh] overflow-auto relative">
       <button onclick="closeModal()" class="absolute top-2 right-2 bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Close</button>
       <div id="modal-content"></div>
     </div>
@@ -88,37 +88,52 @@ const API_URL = `https://api.github.com/repos/breakneckrecording/breakneck-recor
       }
     }
 
-    function showFile(url, name) {
-      const ext = name.split('.').pop().toLowerCase();
-      const modal = document.getElementById('file-modal');
-      const content = document.getElementById('modal-content');
-      content.innerHTML = '<p>Loading preview...</p>';
+function showFile(url, name) {
+  const ext = name.split('.').pop().toLowerCase();
+  const modal = document.getElementById('file-modal');
+  const content = document.getElementById('modal-content');
+  content.innerHTML = '<p>Loading preview...</p>';
 
-      if (['png', 'jpg', 'jpeg', 'gif', 'webp'].includes(ext)) {
-        content.innerHTML = `<img src="${url}" alt="${name}" class="max-w-full rounded">`;
-      } else if (['txt', 'md', 'json', 'js', 'html', 'css'].includes(ext)) {
-        fetch(url)
-          .then(res => res.text())
-          .then(text => {
-            content.innerHTML = `
-              <h3 class="font-bold mb-2">${name}</h3>
-              <pre class="bg-gray-100 text-sm p-4 rounded overflow-auto whitespace-pre-wrap max-h-[60vh]">${text.replace(/</g, '&lt;')}</pre>
-            `;
-          })
-          .catch(() => {
-            content.innerHTML = `<p>Failed to load text content.</p>`;
-          });
-      } else {
+  const downloadBtn = `<a href="${url}" download class="mt-4 inline-block bg-purple-400 text-white px-4 py-2 rounded hover:bg-black">Download File</a>`;
+
+  if (['png', 'jpg', 'jpeg', 'gif', 'webp'].includes(ext)) {
+    content.innerHTML = `
+      <img src="${url}" alt="${name}" class="max-w-full rounded">
+      ${downloadBtn}
+    `;
+  } else if (['mp3', 'wav', 'ogg'].includes(ext)) {
+    content.innerHTML = `
+      <h3 class="font-bold mb-4">${name}</h3>
+      <audio controls class="w-full mb-4">
+        <source src="${url}" type="audio/${ext}">
+        Your browser does not support the audio element.
+      </audio>
+      ${downloadBtn}
+    `;
+  } else if (['txt', 'md', 'json', 'js', 'html', 'css'].includes(ext)) {
+    fetch(url)
+      .then(res => res.text())
+      .then(text => {
         content.innerHTML = `
-          <h3 class="font-bold mb-4">${name}</h3>
-          <p class="mb-4">No preview available.</p>
-          <a href="${url}" download class="inline-block bg-purple-400 text-white px-4 py-2 rounded hover:bg-black">Download File</a>
+          <h3 class="font-bold mb-2">${name}</h3>
+          <pre class="bg-gray-100 text-sm p-4 rounded overflow-auto whitespace-pre-wrap max-h-[60vh]">${text.replace(/</g, '&lt;')}</pre>
+          ${downloadBtn}
         `;
-      }
+      })
+      .catch(() => {
+        content.innerHTML = `<p>Failed to load text content.</p>${downloadBtn}`;
+      });
+  } else {
+    content.innerHTML = `
+      <h3 class="font-bold mb-4">${name}</h3>
+      <p class="mb-4">No preview available.</p>
+      ${downloadBtn}
+    `;
+  }
 
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+}
 
     function closeModal() {
       document.getElementById('file-modal').classList.add('hidden');
