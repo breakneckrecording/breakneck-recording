@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 
 <div class="announcement-banner">
-  <div class="announcement-track">
-    <div class="announcement-text">
-      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE!   &nbsp;&nbsp;&nbsp;
-      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE!  &nbsp;&nbsp;&nbsp;
-      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE! 
+  <div class="scrolling-wrapper">
+    <div class="scrolling-content">
+      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE! &nbsp;&nbsp;&nbsp;&nbsp;
+      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE! &nbsp;&nbsp;&nbsp;&nbsp;
+      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE! &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="scrolling-content">
+      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE! &nbsp;&nbsp;&nbsp;&nbsp;
+      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE! &nbsp;&nbsp;&nbsp;&nbsp;
+      🎙️ WE ARE NOW OPEN FOR BUSINESS — CLICK BOOK NOW TO SCHEDULE! &nbsp;&nbsp;&nbsp;&nbsp;
     </div>
   </div>
 </div>
@@ -24,17 +29,17 @@
   z-index: 1000;
 }
 
-.announcement-track {
+.scrolling-wrapper {
   display: flex;
-  white-space: nowrap;
+  width: fit-content;
   animation: scroll-left 20s linear infinite;
 }
 
-.announcement-text {
-  display: inline-block;
-  padding-right: 100px; /* spacing between loops */
+.scrolling-content {
+  white-space: nowrap;
+  display: flex;
 }
-
+  
 @keyframes scroll-left {
   0% {
     transform: translateX(0%);
@@ -44,6 +49,7 @@
   }
 }
 </style>
+
 
 <html lang="en">
 <head>
