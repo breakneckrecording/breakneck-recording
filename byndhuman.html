@@ -36,13 +36,16 @@
     }
 
 	.card {
- 	 width: 100%;
+  	display: block; /* allows the anchor to behave like a block */
+  	width: 100%;
   	max-width: 480px;
- 	 height: 270px;
- 	 border-radius: 20px;
- 	 overflow: hidden;
- 	 margin-bottom: 24px;
- 	 position: relative;
+  	height: 270px;
+  	border-radius: 20px;
+  	overflow: hidden;
+  	margin-bottom: 24px;
+  	position: relative;
+  	text-decoration: none; /* remove underline */
+ 	 color: inherit;         /* keep text color white */
 	}
 
 	.card img {
@@ -95,13 +98,13 @@
   <img class="avatar" src="https://i.imgur.com/u3PkYm3.jpeg" alt="byndhuman">
   <div class="username">byndhuman</div>
 
-  <div class="card">
+  <a href="https://breakneckrecording.com" class="card" target="_blank">
     <img src="https://i.imgur.com/uj60aZ0.jpeg" alt="Booking image">
     <div class="text">Breakneck Recording Studio – Book Now</div>
-  </div>
+  </a>
 
   <div class="links">
-    <a href="https://byndhuman.com/beats" class="link-btn">beats</a>
+    <a href="https://www.beatstars.com/beyondmusic" class="link-btn">beats</a>
     <a href="https://youtube.com/@byndhuman" class="link-btn">youtube</a>
     <a href="https://instagram.com/byndhuman" class="link-btn">instagram</a>
     <a href="https://twitter.com/byndhuman" class="link-btn">twitter</a>
