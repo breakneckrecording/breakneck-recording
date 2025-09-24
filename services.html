@@ -26,23 +26,169 @@
     </nav>
   </header>
 
-  <section class="p-10 max-w-3xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-6 text-[var(--accent-purple)]"></h2>
-    <ul class="space-y-6 text-gray-300">
-      <li>
-        <h3 class="text-xl font-semibold text-white">Coming Soon...</h3>
-        <p></p>
-      </li>
-      <li>
-        <h3 class="text-xl font-semibold text-white"></h3>
-        <p></p>
-      </li>
-      <li>
-        <h3 class="text-xl font-semibold text-white"></h3>
-        <p></p>
-      </li>
-    </ul>
-  </section>
+<div class="card-container">
+  <div class="card">
+    <div class="card-image"></div>
+    <div class="card-content">
+      <h2 class="card-title">Vocal Mixing</h2>
+      <p class="card-description">
+        Professional vocal mixing that brings your vocals to life, blending them seamlessly with your beat for a polished, radio-ready sound
+      </p>
+      <div class="card-price">$60.00</div>
+      <div class="card-tags">
+        <span class="tag">Top Pick</span>
+      </div>
+      <a href="#" class="card-button">Add to Cart</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-image"></div>
+    <div class="card-content">
+      <h2 class="card-title">Beat Mixing</h2>
+      <p class="card-description">
+        Transform your beat into a polished, professional instrumental with balanced levels, dynamic energy, and a powerful, full sound
+      </p>
+      <div class="card-price">$30.00</div>
+      <div class="card-tags">
+        <span class="tag">Popular</span>
+      </div>
+      <a href="#" class="card-button">Add to Cart</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-image"></div>
+    <div class="card-content">
+      <h2 class="card-title">Custom Vocal Chain</h2>
+      <p class="card-description">
+        A polished vocal chain, crafted to your liking, giving your voice clarity, warmth, and presence that cuts through any mix
+      </p>
+      <div class="card-price">$150.00</div>
+      <div class="card-tags">
+        <span class="tag">Popular</span>
+      </div>
+      <a href="#" class="card-button">Add to Cart</a>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Container for all cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+/* Individual Card */
+.card {
+  position: relative;
+  width: 350px;
+  border-radius: 20px;
+  overflow: hidden;   /* important to clip edges */
+  font-family: system-ui, sans-serif;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.card-image {
+  height: 500px;
+  background: url('https://i.imgur.com/RFoqNGz.jpeg') center/cover no-repeat;
+  position: relative;
+}
+
+/* Gradient overlay */
+.card-image::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px; /* total height of bottom overlay */
+  background: 
+    linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Card Content */
+.card-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  z-index: 2;
+  color: #fff;
+}
+
+/* Text Styles */
+.card-title {
+  font-size: 1.2rem;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+  color: #d1d5db;
+}
+
+/* Price */
+.card-price {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.7);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Tags */
+.card-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.tag {
+  background: rgba(255,255,255,0.15);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+/* Button */
+.card-button {
+  display: block;
+  text-align: center;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.card-button:hover {
+  background: #e5e5e5;
+}
+
+/* MOBILE: 1 card per row */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;         /* Full width */
+    max-width: 400px;    /* Optional limit */
+  }
+}
+</style>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init({ duration: 1000, once: true });</script>
